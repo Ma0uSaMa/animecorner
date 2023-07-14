@@ -50,7 +50,7 @@ body.dark {
   height: 55px;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--navbar-color);
   padding: 10px;
   color: var(--text-color);
@@ -59,10 +59,13 @@ body.dark {
 .title {
   position: absolute;
   height: 100%;
-  margin-left: 88px;
   justify-content: center;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 30px;
 }
 
 .admin-details {

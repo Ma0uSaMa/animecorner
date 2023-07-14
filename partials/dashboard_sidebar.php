@@ -51,39 +51,9 @@ if (isset($_SESSION['admin_username'])) {
     					<span class="text nav-text">Registered Users</span>
 					</a>	
 				</li>
-				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php">
-						<i class='bx bx-bell icon'></i>
-						<span class="text nav-text">Notification</span>
-					</a>	
-				</li>
-				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php">
-						<i class='bx bx-pie-chart-alt icon'></i>
-						<span class="text nav-text">Analysis</span>
-					</a>	
-				</li>
-				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php">
-						<i class='bx bx-heart icon'></i>
-						<span class="text nav-text">Likes</span>
-					</a>	
-				</li>
-				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php">
-						<i class='bx bx-wallet icon'></i>
-						<span class="text nav-text">Wallet</span>
-					</a>	
-				</li>
 			</ul>
 		</div>
 		<div class="bottom-content">
-			<li class="">
-				<a href="../../admin/dashboard/dashboard.php">
-						<i class='bx bx-log-out icon'></i>
-						<span class="text nav-text">Logout</span>
-				</a>	
-			</li>
 			<li class="mode">
 				<div class="moon-sun">
 						<i class='bx bx-moon icon moon'></i>
