@@ -22,7 +22,8 @@ if (!isset($_SESSION['admin_username'])) {
     <section class="home">
         <div class="text">Dashboard</div>
         <p>Updating soon...</p>
-        
+    </section>
+    <section class="registeredusers">
         <?php
         // Check if the 'registered' parameter is set in the URL
         if (isset($_GET['registered']) && $_GET['registered'] === 'users') {

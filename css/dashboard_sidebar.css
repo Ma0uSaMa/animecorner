@@ -342,3 +342,22 @@ section.home .text {
 section.home p {
   font-size: 90px; /* Adjust the font size as needed */
 }
+
+.registeredusers{
+	 position: absolute;
+  	top: 55px;
+  	left: 250px;
+ 	height: calc(100vh - 55px);
+  	width: calc(100% - 250px);
+	transition: var(--tran-04);
+	background: var(--primary-color);
+	justify-content: center;
+	align-items: center;
+}
+
+.sidebar.close ~ .registeredusers{
+	left: 88px;
+	width: calc(100% - 88px);
+	transition: var(--tran-04);
+}
+
