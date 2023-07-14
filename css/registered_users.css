@@ -1,0 +1,31 @@
+/* animecorner/css/registered_users.css */
+
+.registered-users {
+  padding: 20px;
+}
+
+.registered-users h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.registered-users table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registered-users th,
+.registered-users td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.registered-users th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.registered-users tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
