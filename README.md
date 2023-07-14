@@ -1,0 +1,2 @@
+# animecorner
+ A small project
