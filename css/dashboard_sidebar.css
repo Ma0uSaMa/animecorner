@@ -312,6 +312,9 @@ body.dark .switch::before{
 	height: 100vh;
 	width: calc(100% - 88px);
 	transition: var(--tran-04);
+	background: var(--primary-color);
+	justify-content: center;
+	align-items: center;
 }
 
 .sidebar.close ~ .home{
