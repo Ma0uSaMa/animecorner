@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
         // Verify the entered password against the hashed password
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['admin_username'] = $row['name'];
+            $_SESSION['admin_role'] = $row['role']; // Store the role in the session
             header("Location: dashboard/dashboard.php");
             exit();
         } else {

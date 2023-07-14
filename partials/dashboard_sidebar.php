@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+// Check if the admin is logged in
+if (isset($_SESSION['admin_username'])) {
+    // Database connection
+    require_once '../../includes/db_connection.php';
+
+    // Retrieve the role of the logged-in admin from the session
+    $admin_role = $_SESSION['admin_role'];
+
+    // Display the role
+    $role_text = ($admin_role) ? $admin_role : 'Role not found';
+
+    // Rest of your code
+?>
 <nav class = "sidebar close">
 	<header>
 		<div class="image-text">
@@ -6,7 +22,7 @@
 			</span>
 			<div class="text header-text">
 				<span class="name">Anime Corner</span>
-				<span class="profession">Web developer</span>
+				<span class="profession"><?php echo $role_text; ?></span>
 			</div>
 		</div>
 		<div class="toggle" id="menu-toggle">
@@ -83,3 +99,9 @@
 	</div>
 
 </nav>
+<?php
+} else {
+    header("Location: ../admin_login.php");
+    exit();
+}
+?>

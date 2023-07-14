@@ -304,13 +304,13 @@ body.dark .menu-bar .mode i.moon{
 body.dark .switch::before{
 	left: 25px;
 }
-
+/* --dashboard.php--  */
 .home{
-	top: 55px;
-	position: relative;
-	left: 250px;
-	height: 100vh;
-	width: calc(100% - 88px);
+	 position: absolute;
+  top: 55px;
+  left: 250px;
+  height: calc(100vh - 55px);
+  width: calc(100% - 250px);
 	transition: var(--tran-04);
 	background: var(--primary-color);
 	justify-content: center;
