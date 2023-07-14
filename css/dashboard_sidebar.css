@@ -307,10 +307,10 @@ body.dark .switch::before{
 /* --dashboard.php--  */
 .home{
 	 position: absolute;
-  top: 55px;
-  left: 250px;
-  height: calc(100vh - 55px);
-  width: calc(100% - 250px);
+  	top: 55px;
+  	left: 250px;
+ 	height: calc(100vh - 55px);
+  	width: calc(100% - 250px);
 	transition: var(--tran-04);
 	background: var(--primary-color);
 	justify-content: center;
@@ -321,4 +321,24 @@ body.dark .switch::before{
 	left: 88px;
 	width: calc(100% - 88px);
 	transition: var(--tran-04);
+}
+
+section.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+section.home .text {
+  font-size: 100px; /* Adjust the font size as needed */
+  font-weight: bold;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+section.home p {
+  font-size: 90px; /* Adjust the font size as needed */
 }
