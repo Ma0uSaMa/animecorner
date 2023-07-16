@@ -361,3 +361,18 @@ section.home p {
 	transition: var(--tran-04);
 }
 
+.sidebar .menu ul li:nth-child(1):hover ~ .home,
+.sidebar .menu ul li:nth-child(1):focus ~ .home,
+.sidebar .menu ul li:nth-child(2).active ~ .home {
+  display: flex;
+}
+
+.sidebar .menu ul li:nth-child(2):hover ~ .registeredusers,
+.sidebar .menu ul li:nth-child(2):focus ~ .registeredusers,
+.sidebar .menu ul li:nth-child(2).active ~ .registeredusers {
+  display: flex;
+}
+
+section.registeredusers {
+  display: none;
+}
