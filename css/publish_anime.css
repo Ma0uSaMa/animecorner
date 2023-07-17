@@ -1,0 +1,34 @@
+.publish-anime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px;
+}
+
+.publish-anime-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align form inputs to the left */
+    margin-top: 20px;
+}
+
+.publish-anime-form input,
+.publish-anime-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.publish-anime-form input[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #695CFE;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+
+.publish-anime-message {
+    margin-top: 10px;
+    font-weight: bold;
+}

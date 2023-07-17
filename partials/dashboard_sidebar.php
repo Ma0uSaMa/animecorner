@@ -40,7 +40,7 @@ if (isset($_SESSION['admin_username'])) {
 				</li>
 			<ul class="menu-links">
 				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php">
+					<a href="../../admin/dashboard/dashboard.php?dashboard" id="dashboard-link">
 						<i class='bx bx-home-alt icon'></i>
 						<span class="text nav-text">Dashboard</span>
 					</a>	
@@ -49,6 +49,12 @@ if (isset($_SESSION['admin_username'])) {
 					<a href="../../admin/dashboard/dashboard.php?registered=users" id="registered-users-link">
     					<i class='bx bxs-user icon'></i>
     					<span class="text nav-text">Registered Users</span>
+					</a>	
+				</li>
+				<li class="nav-link">
+					<a href="../../admin/dashboard/publish_anime.php?publish=anime" id="publish-anime-link">
+    					<i class='bx bxs-user icon'></i>
+    					<span class="text nav-text">Publish Anime</span>
 					</a>	
 				</li>
 			</ul>

@@ -31,8 +31,16 @@ if (!isset($_SESSION['admin_username'])) {
         }
         ?>
     </section>
+    <section class="publishanime">
+        <?php
+        // Check if the 'registered' parameter is set in the URL
+        if (isset($_GET['publish']) && $_GET['publish'] === 'anime') {
+            include __DIR__ . '/publish_anime.php';
+        }
+        ?>
+    </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/registered_users.js"></script>
+    <script src="../../js/dashboard_sidebar.js"></script>
     <script src="../../js/dashboard.js"></script>
 </body>
 </html>
