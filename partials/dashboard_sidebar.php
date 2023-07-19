@@ -79,6 +79,7 @@ if (isset($_SESSION['admin_username'])) {
 	</div>
 
 </nav>
+<script src="../../js/dashboard_sidebar_toggle.js"></script>
 <?php
 } else {
     header("Location: ../admin_login.php");
