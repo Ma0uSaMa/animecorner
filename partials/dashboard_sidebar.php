@@ -19,7 +19,7 @@ if (isset($_SESSION['admin_username'])) {
 				<img src="../../images/logo-image.png" alt="">
 			</span>
 			<div class="text header-text">
-				<span class="name">Anime Corner</span>
+				<span class="name">Dashboard</span>
 				<span class="profession"><?php echo $role_text; ?></span>
 			</div>
 		</div>
@@ -32,17 +32,11 @@ if (isset($_SESSION['admin_username'])) {
 
 	<div class="menu-bar">
 		<div class="menu">
-			<li class="search-box">
+			<!-- <li class="search-box">
 						<i class='bx bx-search icon'></i>
 						<input type="search" placeholder="Search...">
-				</li>
+				</li> -->
 			<ul class="menu-links">
-				<li class="nav-link">
-					<a href="dashboard.php?page=dashboard" class="nav-link">
-    				<i class='bx bx-home-alt icon'></i>
-    				<span class="text nav-text">Dashboard</span>
-				</a>
-				</li>
 				<li class="nav-link">
 					<a href="dashboard.php?page=registered_users" class="nav-link">
     				<i class='bx bxs-user icon'></i>
