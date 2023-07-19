@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photo = $_FILES['photo'] ?? null;
         if ($photo === null || $photo['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['anime_message'] = "Error uploading the photo.";
-            header("Location: ../../admin/dashboard.php?publish=anime&message=Error uploading the photo.");
+            header("Location: publish_anime.php");
             exit();
         }
 
@@ -62,26 +62,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($update_stmt->execute()) {
                 $_SESSION['anime_message'] = "Anime details inserted successfully.";
-                header("Location: ../../admin/dashboard.php?publish=anime&message=Anime details inserted successfully.");
+                header("Location: ../dashboard/dashboard.php?page=publish_anime");
                 exit();
             } else {
                 $_SESSION['anime_message'] = "Error updating anime details: " . $update_stmt->error;
-                header("Location: ../../admin/dashboard.php?publish=anime&message=Error updating anime details: " . $update_stmt->error);
+                header("Location: ../dashboard/dashboard.php?page=publish_anime");
                 exit();
             }
         } else {
             $_SESSION['anime_message'] = "Invalid file format. Only PNG, JPG, and GIF images are allowed.";
-            header("Location: ../../admin/dashboard.php?publish=anime&message=Invalid file format. Only PNG, JPG, and GIF images are allowed.");
+            header("Location: ../dashboard/dashboard.php?page=publish_anime");
             exit();
         }
     } else {
         $_SESSION['anime_message'] = "Error inserting anime details: " . $stmt->error;
-        header("Location: ../../admin/dashboard.php?publish=anime&message=Error inserting anime details: " . $stmt->error);
+        header("Location: ../dashboard/dashboard.php?page=publish_anime");
         exit();
     }
 } else {
     $_SESSION['anime_message'] = "Invalid request method.";
-    header("Location: ../../admin/dashboard.php?publish=anime&message=Invalid request method.");
+    header("Location: ../dashboard/dashboard.php?page=publish_anime");
     exit();
 }
 

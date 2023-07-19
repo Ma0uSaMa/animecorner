@@ -1,5 +1,4 @@
 <?php
-
 if (!isset($_SESSION['admin_username'])) {
     header("Location: ../admin_login.php");
     exit();
@@ -30,7 +29,5 @@ if (!isset($_SESSION['admin_username'])) {
         }
         ?>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/publish_anime.js"></script>
 </body>
 </html>
