@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare and execute the SQL statement to insert the anime details
     $query = "INSERT INTO anime_details_insert (title, description, aired_date) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($query);
-    
+
     if ($stmt === false) {
         die("Error preparing SQL statement: " . $conn->error);
     }
-    
+
     $stmt->bind_param("sss", $title, $description, $aired_date);
-    
+
     if ($stmt->execute()) {
         $anime_id = $stmt->insert_id;
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photo = $_FILES['photo'] ?? null;
         if ($photo === null || $photo['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['anime_message'] = "Error uploading the photo.";
-            header("Location: ../dashboard/publish_anime.php");
+            header("Location: ../../admin/dashboard.php?publish=anime&message=Error uploading the photo.");
             exit();
         }
 
@@ -53,36 +53,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Update the anime record with the photo path
             $update_query = "UPDATE anime_details_insert SET photo = ? WHERE id = ?";
             $update_stmt = $conn->prepare($update_query);
-            
+
             if ($update_stmt === false) {
                 die("Error preparing SQL statement: " . $conn->error);
             }
-            
+
             $update_stmt->bind_param("si", $photo_path, $anime_id);
 
             if ($update_stmt->execute()) {
                 $_SESSION['anime_message'] = "Anime details inserted successfully.";
-                header("Location: ../dashboard/publish_anime.php");
+                header("Location: ../../admin/dashboard.php?publish=anime&message=Anime details inserted successfully.");
                 exit();
             } else {
                 $_SESSION['anime_message'] = "Error updating anime details: " . $update_stmt->error;
-                header("Location: ../dashboard/publish_anime.php");
+                header("Location: ../../admin/dashboard.php?publish=anime&message=Error updating anime details: " . $update_stmt->error);
                 exit();
             }
         } else {
             $_SESSION['anime_message'] = "Invalid file format. Only PNG, JPG, and GIF images are allowed.";
-            header("Location: ../dashboard/publish_anime.php");
+            header("Location: ../../admin/dashboard.php?publish=anime&message=Invalid file format. Only PNG, JPG, and GIF images are allowed.");
             exit();
         }
     } else {
         $_SESSION['anime_message'] = "Error inserting anime details: " . $stmt->error;
-        header("Location: ../dashboard/publish_anime.php");
+        header("Location: ../../admin/dashboard.php?publish=anime&message=Error inserting anime details: " . $stmt->error);
         exit();
     }
 } else {
     $_SESSION['anime_message'] = "Invalid request method.";
-    header("Location: ../dashboard/publish_anime.php");
+    header("Location: ../../admin/dashboard.php?publish=anime&message=Invalid request method.");
     exit();
 }
 
 $conn->close();
+?>

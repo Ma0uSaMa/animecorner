@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Check if the admin is logged in
 if (isset($_SESSION['admin_username'])) {
     // Database connection
@@ -40,22 +38,28 @@ if (isset($_SESSION['admin_username'])) {
 				</li>
 			<ul class="menu-links">
 				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php?dashboard" id="dashboard-link">
-						<i class='bx bx-home-alt icon'></i>
-						<span class="text nav-text">Dashboard</span>
-					</a>	
+					<a href="dashboard.php?page=dashboard" class="nav-link">
+    				<i class='bx bx-home-alt icon'></i>
+    				<span class="text nav-text">Dashboard</span>
+				</a>
 				</li>
 				<li class="nav-link">
-					<a href="../../admin/dashboard/dashboard.php?registered=users" id="registered-users-link">
-    					<i class='bx bxs-user icon'></i>
-    					<span class="text nav-text">Registered Users</span>
-					</a>	
+					<a href="dashboard.php?page=registered_users" class="nav-link">
+    				<i class='bx bxs-user icon'></i>
+    				<span class="text nav-text">Registered Users</span>
+				</a>	
 				</li>
 				<li class="nav-link">
-					<a href="../../admin/dashboard/publish_anime.php?publish=anime" id="publish-anime-link">
-    					<i class='bx bxs-user icon'></i>
-    					<span class="text nav-text">Publish Anime</span>
-					</a>	
+					<a href="dashboard.php?page=publish_anime" class="nav-link">
+    				<i class='bx bxs-user icon'></i>
+    				<span class="text nav-text">Publish Anime</span>
+				</a>
+				</li>
+				<li class="nav-link">
+					<a href="dashboard.php?page=anime_details" class="nav-link">
+    				<i class='bx bxs-user icon'></i>
+    				<span class="text nav-text">Anime Details</span>
+				</a>
 				</li>
 			</ul>
 		</div>
