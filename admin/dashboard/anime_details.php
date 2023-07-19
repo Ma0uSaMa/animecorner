@@ -10,8 +10,14 @@ require_once('../../includes/db_connection.php');
 $query = "SELECT * FROM anime_details_insert";
 $result = $conn->query($query);
 
-if ($result === false) {
-    die("Error retrieving anime details: " . $conn->error);
+// Initialize an empty array to store anime details
+$anime_details = array();
+
+if ($result->num_rows > 0) {
+    // Iterate over each row and store the details in the array
+    while ($row = $result->fetch_assoc()) {
+        $anime_details[] = $row;
+    }
 }
 ?>
 
@@ -23,19 +29,58 @@ if ($result === false) {
     <link rel="icon" type="image/png" href="../../images/logo-image.png">
 </head>
 <body>
-    <h1 class="anime-details-title">Anime Details</h1>
-    <div class="anime-details-container">
-        <?php while ($row = $result->fetch_assoc()) : ?>
-            <div class="anime-card">
-                <h2 class="anime-title"><?php echo $row['title']; ?></h2>
-                <p class="anime-description"><?php echo $row['description']; ?></p>
-                <p class="anime-aired-date">Aired Date: <?php echo $row['aired_date']; ?></p>
-                <?php if ($row['photo']) : ?>
-                    <img class="anime-photo" src="<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>">
-                <?php endif; ?>
-            </div>
-        <?php endwhile; ?>
+    <div class="container">
+        <section class="content-section">
+            <h1 class="section-title">Anime Details</h1>
+
+            <table class="anime-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Aired Date</th>
+                        <th>Photo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Check if anime details are available
+                    if (isset($anime_details) && is_array($anime_details) && count($anime_details) > 0) {
+                        // Iterate over each anime and display the details in the table rows
+                        foreach ($anime_details as $anime) {
+                            ?>
+                            <tr>
+                                <td><?php echo $anime['title']; ?></td>
+                                <td><?php echo $anime['description']; ?></td>
+                                <td><?php echo $anime['aired_date']; ?></td>
+                                <td>
+                                    <img src="<?php echo $anime['photo']; ?>" class="anime-photo" alt="Anime Photo">
+                                </td>
+
+                                <td>
+                                    <a href="update_anime.php?id=<?php echo $anime['id']; ?>" class="action-link">Update</a>
+                                    <a href="delete_anime.php?id=<?php echo $anime['id']; ?>" class="action-link">Delete</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    } else {
+                        // Display a message when no anime details are found
+                        ?>
+                        <tr>
+                            <td colspan="4">No anime details found.</td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </section>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/dashboard_sidebar.js"></script>
 </body>
 </html>
 
