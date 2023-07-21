@@ -13,6 +13,7 @@
   <?php include __DIR__ . '/partials/navbar.php'; ?>
   <h1> Home </h1>
   <script src="/animecorner/js/overlay.js"></script>
+  <?php include __DIR__ . '/pages/anime_details.php'; ?>
   <div class="overlay"></div>
 </body>
 </html>

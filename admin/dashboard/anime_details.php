@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
                                 <td><?php echo $anime['description']; ?></td>
                                 <td><?php echo $anime['aired_date']; ?></td>
                                 <td>
-                                    <img src="<?php echo $anime['photo']; ?>" class="anime-photo" alt="Anime Photo">
+                                    <img src="../../<?php echo $anime['photo']; ?>" class="anime-photo" alt="Anime Photo">
                                 </td>
 
                                 <td>
