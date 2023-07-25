@@ -13,7 +13,8 @@ Note: Make sure to properly import the database from the given file.
 In order make website work properly proper import of database is important, so in order to do follow these steps:
 Step 1: open xampp control panel and start Apache & mysql
 Step 2: go to browser and type localhost/phpmyadmin
-Step 3: go to import and select the anime_corner.sql which will be inside aninmecorner/database/anime_corner.sql
+Step 3: create a database named anime_corner
+Step 4: go to import and select the anime_corner.sql which will be inside aninmecorner/database/anime_corner.sql
 follow these steps & your website will be ready to go
 Note: be sure to add animecorner folder at xammp/htdocs
 
