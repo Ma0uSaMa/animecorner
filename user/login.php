@@ -7,12 +7,12 @@
 <body>
 <div class="login-container" id="loginContainer">
   <h2>Login Form</h2>
-  <button class="close-btn" onclick="closeLogin()">&times;</button>
   <?php if (isset($_GET['error'])): ?>
       <div class="error">
         <?php echo $_GET['error']; ?>
       </div>
     <?php endif; ?>
+  <button class="close-btn" onclick="closeLogin()">&times;</button>
   <form id="loginForm" action="/animecorner/user/auth/users_dbfetch.php" method="POST">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
