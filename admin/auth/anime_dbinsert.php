@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         $_SESSION['anime_message'] = "Anime details inserted successfully.";
-        header("Location: ../dashboard/dashboard.php?page=publish_anime");
+        header("Refresh: 3; URL=../dashboard/dashboard.php?page=publish_anime");
         exit();
     } else {
         $_SESSION['anime_message'] = "Error inserting anime details: " . $stmt->error;
