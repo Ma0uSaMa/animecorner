@@ -10,13 +10,15 @@
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 350px;
+  height: 800px;
 }
 
 /* Styling for the anime title */
 .anime-title {
   font-size: 20px;
   font-weight: bold;
+  overflow-wrap: break-word;
   margin-bottom: 10px;
 }
 

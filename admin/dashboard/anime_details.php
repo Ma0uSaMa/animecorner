@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
                     <?php
                     // Check if anime details are available
                     if (isset($anime_details) && is_array($anime_details) && count($anime_details) > 0) {
-                        // Iterate over each anime and display the details in the table rows
+                        // Iterate over each anime and display the details in the table num_rows
                         foreach ($anime_details as $anime) {
                             ?>
                             <tr>

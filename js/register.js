@@ -4,7 +4,17 @@ function openRegister(event) {
   var loginContainer = document.getElementById("loginContainer");
   loginContainer.style.display = "none";
   registerContainer.style.display = "block";
+
+    var loginMessageDiv = document.getElementById("loginMessage");
+  var loginErrorDiv = document.getElementById("loginError");
+  if (loginMessageDiv) {
+    loginMessageDiv.style.display = "none";
+  }
+  if (loginErrorDiv) {
+    loginErrorDiv.style.display = "none";
+  }
 }
+
 
 function closeRegister() {
   var registerContainer = document.getElementById("registerContainer");
@@ -15,12 +25,14 @@ function showMessage(message) {
   var messageDiv = document.getElementById("registrationMessage");
   var errorDiv = document.getElementById("registrationError");
   var confirmPasswordErrorDiv = document.getElementById("confirmPasswordError");
+
   if (errorDiv) {
-    errorDiv.style.display = "none";
+    errorDiv.style.display = "none"; // Hide error message
   }
   if (confirmPasswordErrorDiv) {
     confirmPasswordErrorDiv.style.display = "none";
   }
+
   if (!messageDiv) {
     messageDiv = document.createElement("div");
     messageDiv.id = "registrationMessage";
@@ -38,12 +50,14 @@ function showError(errorMessage) {
   var errorDiv = document.getElementById("registrationError");
   var messageDiv = document.getElementById("registrationMessage");
   var confirmPasswordErrorDiv = document.getElementById("confirmPasswordError");
+
   if (messageDiv) {
-    messageDiv.style.display = "none";
+    messageDiv.style.display = "none"; // Hide success message
   }
   if (confirmPasswordErrorDiv) {
     confirmPasswordErrorDiv.style.display = "none";
   }
+
   if (!errorDiv) {
     errorDiv = document.createElement("div");
     errorDiv.id = "registrationError";
@@ -110,6 +124,7 @@ function submitForm(event) {
       }
     })
     .then(function(data) {
+      console.log(data);
       if (data.status === "success") {
         if (window.opener) {
           window.opener.postMessage({ type: 'registrationSuccess' }, '*');
@@ -125,6 +140,7 @@ function submitForm(event) {
       showError(error.message);
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
   var registerButton = document.querySelector(".register");

@@ -55,6 +55,12 @@ if (isset($_SESSION['admin_username'])) {
     				<span class="text nav-text">Anime Details</span>
 				</a>
 				</li>
+				<li class="nav-link">
+					<a href="dashboard.php?page=anime_ratings" class="nav-link">
+    				<i class='bx bxs-user icon'></i>
+    				<span class="text nav-text">Anime Ratings</span>
+				</a>
+				</li>
 			</ul>
 		</div>
 		<div class="bottom-content">

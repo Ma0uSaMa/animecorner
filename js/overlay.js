@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var registerContainer = document.querySelector("#registerContainer");
 
   registerButton.addEventListener("click", function() {
-    overlay.style.display = "block";
+    overlay.style.display = "none";
     registerContainer.style.display = "block";
   });
 

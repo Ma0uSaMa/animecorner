@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['admin_username'] = $row['name'];
             $_SESSION['admin_role'] = $row['role']; // Store the role in the session
-            header("Location: dashboard/dashboard.php");
+            header("Location: dashboard/dashboard.php?page=registered_users");
             exit();
         } else {
             $error = "Invalid username or password.";

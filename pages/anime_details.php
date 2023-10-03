@@ -28,6 +28,11 @@ if ($result === false) {
                 <h2 class="anime-title"><?php echo $row['title']; ?></h2>
                 <div class="anime-description">Synopsis: <?php echo $row['description']; ?></div>
                 <p class="anime-aired-date">Aired Date: <?php echo $row['aired_date']; ?></p>
+                <form action="submit_rating.php" method="post">
+                    <input type="hidden" name="anime_id" value="<?php echo $row['id']; ?>">
+                    <input type="number" name="rating" min="1" max="5" required>
+                    <input type="submit" value="Submit Rating">
+                </form>
             </div>
         <?php endwhile; ?>
     </div>

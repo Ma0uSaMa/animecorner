@@ -23,9 +23,6 @@
     <li>
       <a href="#">Product</a>
     </li>
-    <li>
-      <a href="#">Project</a>
-    </li>
   </ul>
   <div>
     <button class="login">

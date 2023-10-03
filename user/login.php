@@ -7,20 +7,31 @@
 <body>
 <div class="login-container" id="loginContainer">
   <h2>Login Form</h2>
-  <?php if (isset($_GET['error'])): ?>
-      <div class="error">
-        <?php echo $_GET['error']; ?>
-      </div>
-    <?php endif; ?>
   <button class="close-btn" onclick="closeLogin()">&times;</button>
-  <form id="loginForm" action="/animecorner/user/auth/users_dbfetch.php" method="POST">
+
+  <?php 
+  session_start();
+  $errors = isset($_SESSION["login_errors"]) ? $_SESSION["login_errors"] : [];
+  unset($_SESSION["login_errors"]); 
+  ?>
+  <form id="loginForm" action="/animecorner/user/auth/users_dbfetch.php" method="POST" onsubmit="return submitForm(event)">
+    <?php if (!empty($errors)) { ?>
+    <div class="error" id="loginError">
+      <?php foreach ($errors as $error) {
+        echo $error . "<br>";
+      } ?>
+    </div>
+    <?php } ?> 
+
+    <div class="success" id="loginSuccess" style="display: none;"></div>
+    
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
     <button type="submit">Login</button>
   </form>
-  <p>Don't have an account? <a href="#" onclick="openRegister(event)">Register</a></p>
+  <p>Don't have an account? <a href="#" onclick="openRegister(event)" class="register">Register</a></p>
 </div>
 <script src="/animecorner/js/login.js"></script>
 </body>

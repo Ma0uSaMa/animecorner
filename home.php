@@ -7,7 +7,6 @@
   <link rel="stylesheet" type="text/css" href="/animecorner/css/navbar.css">
   <link rel="icon" type="image/png" href="images/logo-image.png">
   <link rel="stylesheet" type="text/css" href="/animecorner/css/toast.css">
-  <script src="/animecorner/js/toast.js"></script>
 </head>
 <body>
   <?php include __DIR__ . '/partials/navbar.php'; ?>

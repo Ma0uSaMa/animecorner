@@ -9,12 +9,11 @@
   <button class="close-btn" onclick="closeRegister()">&times;</button>
 
   <?php
-  session_start();
   $errors = isset($_SESSION["registration_errors"]) ? $_SESSION["registration_errors"] : [];
   unset($_SESSION["registration_errors"]);
   ?>
 
-  <form action="/animecorner/user/auth/users_dbinsert.php" method="POST" onsubmit="submitForm(event)">
+  <form id="registerForm" action="/animecorner/user/auth/users_dbinsert.php" method="POST" onsubmit="submitForm(event)">
     <?php if (!empty($errors)) { ?>
       <div class="error" id="registrationError">
         <?php foreach ($errors as $error) {
@@ -90,7 +89,7 @@
   </form>
   <p>Already have an account? <a href="#" onclick="openLogin(event)">Login</a></p>
 </div>
-<script src="../js/dob.js"></script>
+<script src="/animecorner/js/dob.js"></script>
 <script src="/animecorner/js/register.js"></script>
 </body>
 </html>
