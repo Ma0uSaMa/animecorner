@@ -10,11 +10,10 @@
   <button class="close-btn" onclick="closeLogin()">&times;</button>
 
   <?php 
-  session_start();
   $errors = isset($_SESSION["login_errors"]) ? $_SESSION["login_errors"] : [];
   unset($_SESSION["login_errors"]); 
   ?>
-  <form id="loginForm" action="/animecorner/user/auth/users_dbfetch.php" method="POST" onsubmit="return submitForm(event)">
+  <form id="loginForm" action="/animecorner/user/auth/users_dbfetch.php" method="POST" onsubmit="submitForm(event)">
     <?php if (!empty($errors)) { ?>
     <div class="error" id="loginError">
       <?php foreach ($errors as $error) {

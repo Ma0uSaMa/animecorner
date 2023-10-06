@@ -8,10 +8,7 @@
   <h2>Sign Up</h2>
   <button class="close-btn" onclick="closeRegister()">&times;</button>
 
-  <?php
-  $errors = isset($_SESSION["registration_errors"]) ? $_SESSION["registration_errors"] : [];
-  unset($_SESSION["registration_errors"]);
-  ?>
+  
 
   <form id="registerForm" action="/animecorner/user/auth/users_dbinsert.php" method="POST" onsubmit="submitForm(event)">
     <?php if (!empty($errors)) { ?>

@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Fetch user data from the database
-    $query = "SELECT id, email, hashed_password FROM users_credentials WHERE email = ?";
+    $query = "SELECT id, email, password FROM users_credentials WHERE email = ?";
     $stmt = $conn->prepare($query);
     
     if (!$stmt) {
@@ -34,14 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $result->fetch_assoc();
     $stmt->close();
 
-    if ($user && password_verify($password, $user['hashed_password'])) {
+    if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_email'] = $user['email'];
-        echo json_encode(['status' => 'success', 'message' => 'Login successful']);
+        header("Location: ../../home.php");
+        
         exit();
     } else {
         // Return an error message as JSON
         $error = 'Invalid email or password.';
+        header("Location: ../../login.php");
         echo json_encode(['status' => 'error', 'message' => $error]);
         exit();
     }
