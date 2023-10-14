@@ -60,13 +60,13 @@ if ($result->num_rows > 0) {
 
                                 <td>
                                     <a href="update_anime.php?id=<?php echo $anime['id']; ?>" class="action-link">Update</a>
+
                                     <a href="delete_anime.php?id=<?php echo $anime['id']; ?>" class="action-link">Delete</a>
                                 </td>
                             </tr>
                             <?php
                         }
                     } else {
-                        // Display a message when no anime details are found
                         ?>
                         <tr>
                             <td colspan="4">No anime details found.</td>

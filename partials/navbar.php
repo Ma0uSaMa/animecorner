@@ -2,7 +2,7 @@
   <div class="logo">
     <h4>Animecorner</h4>
   </div>
-  <div class="search">
+  <!-- <div class="search">
     <li class="search-box">
       <i class='bx bx-search icon'></i>
       <input type="search" placeholder="Search...">
@@ -14,10 +14,10 @@
       <a href="#">Home</a>
     </li>
     <li>
-      <a href="#">About</a>
+      <a href="pages/trending_anime.php">Trending Anime</a>
     </li>
     <li>
-      <a href="#">Product</a>
+      <a href="#">About</a>
     </li>
   </ul>
   <div class="user-details">

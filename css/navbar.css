@@ -71,7 +71,7 @@ nav{
   outline: none;
   border: 1px;
   border-radius: 6px;
-  background: red;
+  background: var(--primary-color-light);
 }
 
 .toggle{

@@ -5,7 +5,7 @@ function openRegister(event) {
   loginContainer.style.display = "none";
   registerContainer.style.display = "block";
 
-    var loginMessageDiv = document.getElementById("loginMessage");
+  var loginMessageDiv = document.getElementById("loginMessage");
   var loginErrorDiv = document.getElementById("loginError");
   if (loginMessageDiv) {
     loginMessageDiv.style.display = "none";
@@ -14,7 +14,6 @@ function openRegister(event) {
     loginErrorDiv.style.display = "none";
   }
 }
-
 
 function closeRegister() {
   var registerContainer = document.getElementById("registerContainer");
@@ -117,30 +116,21 @@ function submitForm(event) {
     .then(function(response) {
       if (response.status === 200) {
         return response.json();
-      } else if (response.status === 409) {
-        throw new Error("Email already exists.");
       } else {
         throw new Error("An error occurred during form submission.");
       }
     })
     .then(function(data) {
-      console.log(data);
       if (data.status === "success") {
-        if (window.opener) {
-          window.opener.postMessage({ type: 'registrationSuccess' }, '*');
-          window.close();
-        } else {
-          showMessage("Registration successful.");
-        }
-      } else {
-        showError(data.message);
+        showMessage(data.message); // Show success message
+      } else if (data.status === "error") {
+        showError(data.message); // Show error message
       }
     })
     .catch(function(error) {
       showError(error.message);
     });
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
   var registerButton = document.querySelector(".register");

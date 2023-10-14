@@ -1,0 +1,35 @@
+/* animecorner/css/registered_users.css */
+
+.anime-ratings {
+  padding: 20px;
+  overflow-x: hidden; /* Add this line to hide horizontal scrollbar */
+}
+
+.ranime-ratings h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.anime-ratings table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.anime-ratings th,
+.anime-ratings td {
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 8px;
+}
+
+.anime-ratings th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.anime-photo {
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+}

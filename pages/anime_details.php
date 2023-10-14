@@ -8,6 +8,7 @@ $result = $conn->query($query);
 if ($result === false) {
     die("Error retrieving anime details: " . $conn->error);
 }
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,3 @@ if ($result === false) {
     </div>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>

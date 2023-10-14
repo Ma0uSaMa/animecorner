@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($photo === null || $photo['error'] !== UPLOAD_ERR_OK) {
         $_SESSION['anime_message'] = "Error uploading the photo.";
         header("Location: publish_anime.php");
-        exit();
+        exit(); 
     } else {
         // Define the supported image formats
-        $supported_formats = ['image/png', 'image/jpeg', 'image/gif'];
+        $supported_formats = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
 
         // Check if the uploaded file is an image and of a supported format
         $image_info = getimagesize($photo['tmp_name']);
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             move_uploaded_file($photo['tmp_name'], "../../" . $photo_path);
         } else {
             $_SESSION['anime_message'] = "Invalid file format. Only PNG, JPG, and GIF images are allowed.";
-            header("Location: publish_anime.php");
+            header("Location: ../dashboard/dashboard.php?page=publish_anime");
             exit();
         }
     }
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         $_SESSION['anime_message'] = "Anime details inserted successfully.";
-        header("Refresh: 3; URL=../dashboard/dashboard.php?page=publish_anime");
+        header("Location: ../dashboard/dashboard.php?page=publish_anime");
         exit();
     } else {
         $_SESSION['anime_message'] = "Error inserting anime details: " . $stmt->error;

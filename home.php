@@ -14,6 +14,9 @@ session_start();
 <body>
   <?php include __DIR__ . '/partials/navbar.php'; ?>
   <script src="/animecorner/js/overlay.js"></script>
+  <script src="/animecorner/js/search.js"></script>
+  <?php include __DIR__ . '/pages/trending_anime.php'; ?>
+  <?php include __DIR__ . '/pages/high_low_anime.php'; ?>
   <?php include __DIR__ . '/pages/anime_details.php'; ?>
   <div class="overlay"></div>
 </body>
