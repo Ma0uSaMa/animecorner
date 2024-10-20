@@ -18,6 +18,7 @@ session_start();
   <?php include __DIR__ . '/pages/trending_anime.php'; ?>
   <?php include __DIR__ . '/pages/high_low_anime.php'; ?>
   <?php include __DIR__ . '/pages/anime_details.php'; ?>
+  <?php include __DIR__ . '/pages/linear_regression.php'; ?>
   <div class="overlay"></div>
 </body>
 </html>
