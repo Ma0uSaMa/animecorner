@@ -51,31 +51,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->fetch();
         $stmt->close();
 
+        // Debugging: Log the count to verify email check
+        error_log("Email check count for {$email}: {$count}"); 
+
         if ($count > 0) {
+            // Email already exists, set the error and redirect
             $error = "Email already exists.";
             $_SESSION['registration_errors'] = [$error];
-            echo json_encode(['status' => 'error', 'message' => $error]);
-            exit();
+            header("Location: ../../register.php"); // Redirect to registration page
+            exit(); // Stop script execution
         } else {
             // Hash the password
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            // Insert the user data into the database
-            $query = "INSERT INTO users_credentials (firstname, lastname, email, password, dob, gender) VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssssss", $firstname, $lastname, $email, $hashedPassword, $dob, $gender);
+            // Insert user data into the database
+            $insertQuery = "INSERT INTO users_credentials (firstname, lastname, email, password, dob, gender) VALUES (?, ?, ?, ?, ?, ?)";
+            $insertStmt = $conn->prepare($insertQuery);
+            $insertStmt->bind_param("ssssss", $firstname, $lastname, $email, $hashed_password, $dob, $gender);
 
-            if ($stmt->execute()) {
-                echo json_encode(['status' => 'success', 'message' => 'Registration successful']);
-                exit();
+            if ($insertStmt->execute()) {
+                // Clear any previous errors in session after successful registration
+                unset($_SESSION['registration_errors']);
+                echo "Registration successful.";
             } else {
-                $error = "Account creation failed.";
-                $_SESSION['registration_errors'] = [$error];
-                echo json_encode(['status' => 'error', 'message' => $error]);
-                exit();
+                // Handle insertion error
+                $_SESSION['registration_errors'] = ["Error during registration: " . $conn->error];
+                header("Location: ../../register.php");
             }
 
-            $stmt->close();
+            $insertStmt->close();
         }
     }
 }

@@ -32,7 +32,7 @@ $query = "SELECT title
 if (!empty($animeData)) {
     $averageBayesian = array_sum($animeData) / count($animeData);
 } else {
-    $averageBayesian = 0; // Default value if there are no anime records
+    $averageBayesian = 0; 
 }
 
 $stmt = $conn->prepare($query);
@@ -55,7 +55,7 @@ if ($result === false) {
         <h1>Top Trending Anime</h1>
         <div class="card-container">
             <?php
-            $rank = 1; // Initialize the rank
+            $rank = 1; 
             while ($row = $result->fetch_assoc()) :
                 $animeTitle = $row['title'];
                 $animeTitleQuery = "SELECT title, photo FROM anime_details_insert WHERE title = ?";
@@ -72,13 +72,13 @@ if ($result === false) {
                     </div>
                     <div class="card-content">
                         <h2><?php echo $animeTitle; ?></h2>
-                        <p>Rank: <?php echo $rank; ?></p> <!-- Display the rank -->
+                        <p>Rank: <?php echo $rank; ?></p> 
                         <p>Average Rating: <?php echo number_format($animeData[$animeTitle], 2); ?></p>
                         <p>Total Ratings by Users: <?php echo getTotalRatingsByUsers($animeTitle, $conn); ?></p>
                     </div>
                 </div>
             <?php
-                $rank++; // Increment the rank for the next anime
+                $rank++; 
             endwhile;
             
             // Function to get the total ratings by users for an anime
